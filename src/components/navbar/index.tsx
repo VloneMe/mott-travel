@@ -25,15 +25,17 @@ export const Navbar = () => {
                 <div className='flex h-full items-center space-x-5'>
                     <NavList className='text-white hidden md:flex'/>
 
-                    <Button size='lg'
-                            className='md:text-lg'
+                    <Button 
+                            size='lg'
+                            className='md:text-lg sm:block hidden'
                     > Let's Travel</Button>
                 </div>
 
                 {/* Menu control */}
 
-                <GiHamburgerMenu size={32}
-                             className='md:hidden text-white text-2xl' 
+                <GiHamburgerMenu 
+                                // size={32}
+                                className='md:hidden text-white text-2xl' 
                 />
             </div>
         </Container>
