@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { Button } from '../ui/button';
 import { Modal } from '../modal';
 import Link from 'next/link';
+import { SignInForm } from '../forms/SignInForm';
 
 export const Hero = () => {
 
@@ -64,11 +65,12 @@ export const Hero = () => {
         </Container>
 
         <Modal isVisible={showModel} 
-                onClose={() => setShowModel(false)} 
+                onClose={() => setShowModel(false)}
+                header='Sign in form' 
         >
             <Container className=''
             >
-                Let's Travel
+                <SignInForm />
             </Container>
         </Modal>
     </section>

@@ -3,6 +3,7 @@ import { Button } from '../ui/button'
 import Link from 'next/link'
 import { Container } from '../Container'
 import { Modal } from '../modal';
+import { SignInForm } from '../forms/SignInForm';
 
 export const TravelCard = () => {
 
@@ -31,11 +32,12 @@ export const TravelCard = () => {
         </Button>
       </Container >
       <Modal isVisible={showModel} 
-              onClose={() => setShowModel(false)}>
-        <Container
+              onClose={() => setShowModel(false)}
+              header='Sign in form'
+      >
+        <Container className=''
         >
-          Ready To Travel
-          We are All set for you?
+          <SignInForm />
         </Container>
       </Modal>
     </div>

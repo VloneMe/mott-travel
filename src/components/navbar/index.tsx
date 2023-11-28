@@ -8,6 +8,7 @@ import Link from 'next/link';
 
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Modal } from '../modal';
+import { SignInForm } from '../forms/SignInForm';
 
 export const Navbar = () => {
 
@@ -71,10 +72,11 @@ export const Navbar = () => {
 
         <Modal isVisible={showModel} 
                 onClose={() => {setShowModel(false)}}
+                header='Sign in form'
         >
-            <Container className='h-60'
+            <Container className=''
             >
-                Hello World!
+                <SignInForm />
             </Container>
         </Modal>
     </nav>
