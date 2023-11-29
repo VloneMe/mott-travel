@@ -39,7 +39,7 @@ export const Navbar = () => {
     >
         <Container className='flex h-full items-center justify-between'>
             <div className='flex h-full items-center'>
-                <Logo className={` ${scrolled ? "bg-gray-500 rounded" : ""}`}
+                <Logo className={` ${scrolled ? "bg-black/75 rounded" : ""}`}
                 />
                 <Link   href='/' 
                         className={`text-white md:text-2xl 

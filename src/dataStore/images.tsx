@@ -1,21 +1,29 @@
-import img1 from 'public/test img/1.png';
-import img2 from 'public/test img/2.png';
-import img3 from 'public/test img/3.png';
-import img4 from 'public/test img/4.png';
+import img1 from 'public/images/ngorongoro.jpg';
+import img2 from 'public/images/mikum.jpeg';
+import img3 from 'public/images/bagamoyo.jpg';
+import img4 from 'public/images/serengeti.jpg';
 
 export const images = [
     {
         img: img1,
         title: 'Ngorongoro',
+        namedAs: 'National Park, Tanzania',
+        status: 0,
     },{
         img: img2,
         title: 'Mikumi',
+        namedAs: 'National Park, Tanzania',
+        status: 1,
     },{
         img: img3,
         title: 'Bagamoyo',
+        namedAs: 'Historical site, Tanzania',
+        status: 0,
     },{
         img: img4,
         title: 'Serengeti',
+        namedAs: 'National Park, Tanzania',
+        status: 0,
     },
 ]
 

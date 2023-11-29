@@ -16,9 +16,18 @@ const userSchema = z.object({
 
 
 export async function POST(req: Request){
-    try {
-        const body = await req.json();
+
+    const body = await req.json();
         const { email, username, password } = userSchema.parse(body);
+
+        console.log(req.body)
+
+
+    try {
+        // const body = await req.json();
+        // const { email, username, password } = userSchema.parse(body);
+
+        // console.log(body)
 
         // Check if user already exists by Email
         const emailExixts = await db.user.findUnique({
@@ -53,6 +62,7 @@ export async function POST(req: Request){
             }
         })
 
+
         // resrict sending or returning password
         // security is a major concern.
         const { password: newUserPassword, ...rest } = newUser;
@@ -63,7 +73,7 @@ export async function POST(req: Request){
         }, {status: 201});
     } catch(err){
         return NextResponse.json({
-            message: "Something went wrong!"
+            message: err, data: body
         }, {status: 500});
     }
 }

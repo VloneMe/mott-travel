@@ -6,11 +6,12 @@ import React from 'react';
 
 export default function page() {
   return (
-    <section className='min-h-screen w-6/12 mx-auto 
-                        flex flex-col justify-center 
-                        items-center space-y-8 relative'
+    <section className='min-h-screen w-full flex flex-col 
+                        justify-center items-center 
+                        space-y-8 py-24 
+                        bg-gray-950/10'
     > 
-        <MottHeader className='absolute top-16 z-[3]'
+        <MottHeader className='absolute top-8 z-[3]'
         />
         <SignInForm className='border-t-2' 
         />

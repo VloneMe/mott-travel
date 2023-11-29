@@ -21,18 +21,23 @@ export const story = [
     {
         title: "Ngororo",
         url: "https://www.ncaa.go.tz/ngorongoro-crater/#see",
+        named: 'National Park, Tanzania',
     },{
         title: "mikumi",
         url: "https://www.tanzaniaparks.go.tz/national_parks/mikumi-national-park",
+        named: 'National Park, Tanzania',
     },{
         title: "Ruaha",
         url: "https://www.ruahanationalpark.com/",
+        named: 'National Park, Tanzania',
     },{
         title: "kilimanjarp",
         url: "https://education.nationalgeographic.org/resource/kilimanjaro/",
+        named: 'National Park, Tanzania',
     },{
         title: "Bagamoyo",
         url: "https://www.wmf.org/project/bagamoyo-historic-town",
+        named: 'National Park, Tanzania',
     },
 ]
 

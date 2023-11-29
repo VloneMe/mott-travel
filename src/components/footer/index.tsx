@@ -39,7 +39,8 @@ export const Footer = () => {
                       className='text-lg hover:text-blue-500 
                                   hover:underline text-gray-600'
                 >
-                  <Link href={data.url}>
+                  <Link href={data.url}
+                  >
                     {data.title}
                   </Link>
                 </li>
@@ -56,7 +57,9 @@ export const Footer = () => {
                       className='text-lg hover:text-blue-500 
                                   hover:underline text-gray-600'
                 >
-                  <Link href={data.url}>
+                  <Link href={data.url}
+                        target="_blank"
+                  >
                     {data.title}
                   </Link>
                 </li>
@@ -76,6 +79,7 @@ export const Footer = () => {
                                   '
                 >
                   <Link href={data.url}
+                        target="_blank"
                         className='flex items-center space-x-3 gap-3'
                   >
                     <span className='text-xl'
