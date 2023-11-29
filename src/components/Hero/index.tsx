@@ -70,7 +70,7 @@ export const Hero = () => {
         >
             <Container className=''
             >
-                <SignInForm />
+                <SignInForm className='w-full'/>
             </Container>
         </Modal>
     </section>

@@ -16,18 +16,11 @@ const userSchema = z.object({
 
 
 export async function POST(req: Request){
-
-    const body = await req.json();
+    try {
+        const body = await req.json();
         const { email, username, password } = userSchema.parse(body);
 
-        console.log(req.body)
-
-
-    try {
-        // const body = await req.json();
-        // const { email, username, password } = userSchema.parse(body);
-
-        // console.log(body)
+        console.log(body)
 
         // Check if user already exists by Email
         const emailExixts = await db.user.findUnique({
@@ -73,7 +66,7 @@ export async function POST(req: Request){
         }, {status: 201});
     } catch(err){
         return NextResponse.json({
-            message: err, data: body
+            message: err,
         }, {status: 500});
     }
 }

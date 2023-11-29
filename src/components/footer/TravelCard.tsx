@@ -37,7 +37,7 @@ export const TravelCard = () => {
       >
         <Container className=''
         >
-          <SignInForm />
+          <SignInForm className='w-full'/>
         </Container>
       </Modal>
     </div>

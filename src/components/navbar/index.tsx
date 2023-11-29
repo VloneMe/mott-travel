@@ -1,4 +1,5 @@
 'use client';
+
 import React, { useEffect, useState } from 'react';
 import { Container } from '../Container';
 import { Logo } from './Logo';
@@ -29,13 +30,13 @@ export const Navbar = () => {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         }
-    },)
+    }, [])
   return (
     <nav className={`w-full h-[70px] 
                     border-none shadow-md 
                     border-b-2 fixed z-[5]
                     transition-all duration-700
-                    ${ scrolled ? ' bg-white/70' : ''}`}
+                    ${ !scrolled ? ' bg-white/70' : ''}`}
     >
         <Container className='flex h-full items-center justify-between'>
             <div className='flex h-full items-center'>
@@ -76,7 +77,7 @@ export const Navbar = () => {
         >
             <Container className=''
             >
-                <SignInForm />
+                <SignInForm className='w-full'  />
             </Container>
         </Modal>
     </nav>

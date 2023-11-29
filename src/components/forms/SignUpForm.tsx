@@ -17,6 +17,7 @@ import { Input } from "@/components/ui/input"
 import { toast } from "@/components/ui/use-toast"
 import Link from "next/link"
 import { GoogleSignInBtn } from "../Button/GoogleSignInBtn"
+import { useRouter } from "next/navigation"
 
 interface Props {
   className?: string;
@@ -41,6 +42,9 @@ const FormSchema = z.object({
 export function SignUpForm(
   { className }: Props
 ) {
+
+  const router = useRouter()
+  
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -51,19 +55,25 @@ export function SignUpForm(
     },
   })
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
+  async function onSubmit(data: z.infer<typeof FormSchema>) {
 
-    console.log(data);
-    toast({
-      title: "You submitted the following values:",
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white"
-          >{JSON.stringify(data, null, 2)}
-          </code>
-        </pre>
-      ),
+    const res = await fetch('/api/user', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: data.username,
+        email: data.email,
+        password: data.password
+      })
     })
+
+    if (res.ok){
+      router.push('/sign-in')
+    }else {
+      console.error("Registration Failed!")
+    }
   }
 
   return (
