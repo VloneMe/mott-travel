@@ -1,12 +1,24 @@
 import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
 import { hash } from 'bcrypt';
+import * as z from 'zod';
+
+
+const userSchema = z.object({
+    username: z.string(),
+    email: z.string()
+    .min(3, 'Email is required')
+    .email('Invalid email!'),
+    password: z.string()
+    .min(1, 'Password is required!')
+    .min(8, 'Password must have more than 8 character!'),
+})
 
 
 export async function POST(req: Request){
     try {
         const body = await req.json();
-        const { email, username, password } = body;
+        const { email, username, password } = userSchema.parse(body);
 
         // Check if user already exists by Email
         const emailExixts = await db.user.findUnique({
@@ -40,12 +52,18 @@ export async function POST(req: Request){
                 password: hashPassword
             }
         })
+
+        // resrict sending or returning password
+        // security is a major concern.
+        const { password: newUserPassword, ...rest } = newUser;
         
 
         return NextResponse.json({
-            user: newUser, message: "User created succesful"
+            user: rest, message: "User created succesful"
         }, {status: 201});
     } catch(err){
-        // console.log(err)
+        return NextResponse.json({
+            message: "Something went wrong!"
+        }, {status: 500});
     }
 }
