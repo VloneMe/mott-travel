@@ -6,6 +6,7 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion"
 import { FaqAccordion } from "./FaqAccordion";
+import { faqsData } from "@/dataStore/faqsData";
   
 
 export const Faq = () => {
@@ -20,12 +21,13 @@ export const Faq = () => {
                     > Trust us we have got you back this is how we do </p>
                 </div>
 
-                <div className="space-y-3">
-                  <FaqAccordion />
-                  <FaqAccordion />
-                  <FaqAccordion />
-                  <FaqAccordion />
-                  <FaqAccordion />
+                <div className="space-y-1">
+                  { faqsData.map((data, index) => (
+                    <div key={index}
+                    >
+                      <FaqAccordion title={data.title} />
+                    </div>
+                  ))}
                 </div>
             </div>
         </Container>

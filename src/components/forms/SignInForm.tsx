@@ -16,7 +16,9 @@ import {
 import { Input } from "@/components/ui/input"
 import { toast } from "@/components/ui/use-toast"
 import Link from "next/link"
-import { GoogleSignInBtn } from "../Button/GoogleSignInBtn"
+import { GoogleSignInBtn } from "../Button/GoogleSignInBtn";
+import { signIn } from 'next-auth/react';
+import { useRouter } from "next/navigation"
 
 interface Props {
   className?: string;
@@ -35,6 +37,9 @@ const FormSchema = z.object({
 export function SignInForm(
   { className }: Props
 ) {
+
+  const router = useRouter();
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -43,25 +48,26 @@ export function SignInForm(
     },
   })
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
+  async function onSubmit(data: z.infer<typeof FormSchema>) {
+    const signInData = await  signIn('credentials', {
+      email: data.email,
+      password: data.password,
+      redirect: false
+    });
 
-    console.log(data);
-    toast({
-      title: "You submitted the following values:",
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white"
-          >{JSON.stringify(data, null, 2)}
-          </code>
-        </pre>
-      ),
-    })
+    console.log(signInData)
+
+    if (signInData?.error){
+      console.log(signInData?.error)
+    }else {
+      return router.push('/admin')
+    }
   }
 
   return (
     <Form {...form}
     >
-      <div className={`flex flex-col w-6/12 
+      <div className={`flex flex-col lg:w-6/12  w-full
                       bg-white shadow-2xl 
                         p-8 rounded-md space-y-5 
                         ${className}`}

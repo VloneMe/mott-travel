@@ -1,42 +1,29 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
 import { Container } from '../Container';
 import { Logo } from './Logo';
 import { NavList } from './NavList';
-import { Button } from '../ui/button';
+import { Button, buttonVariants } from '../ui/button';
 import Link from 'next/link';
 
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Modal } from '../modal';
 import { SignInForm } from '../forms/SignInForm';
+import { SignUpForm } from '../forms/SignUpForm';
+import { useNavHooks } from '@/hooks/useNavHooks';
 
 export const Navbar = () => {
 
-    const [scrolled, setScrolled] = useState(true);
-    const [showModel, setShowModel] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 120){
-                setScrolled(true);
-            } else {
-                setScrolled(false)
-            }
-        }
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        }
-    }, [])
+    const { scrolled, setScrolled, 
+            showModel, setShowModel 
+        } = useNavHooks();
+    
   return (
     <nav className={`w-full h-[70px] 
                     border-none shadow-md 
                     border-b-2 fixed z-[5]
                     transition-all duration-700
-                    ${ !scrolled ? ' bg-white/70' : ''}`}
+                    ${ scrolled ? 'bg-white/80' : 'bg-none'}`}
     >
         <Container className='flex h-full items-center justify-between'>
             <div className='flex h-full items-center'>
@@ -45,7 +32,7 @@ export const Navbar = () => {
                 <Link   href='/' 
                         className={`text-white md:text-2xl 
                                         text-lg font-bold transition duration-500
-                                        ${scrolled ? 'text-black/80 pl-3' : ''}`}> 
+                                        ${scrolled ? 'text-gray-950/75 pl-3' : ''}`}> 
                     Mott Travels
                 </Link>
             </div>
@@ -54,12 +41,18 @@ export const Navbar = () => {
                 <div className='flex h-full items-center space-x-5'>
                     <NavList className={`text-white hidden 
                                             md:flex capitalize 
-                                            ${scrolled ? 'text-black/70' : ''}`}/>
+                                            ${scrolled ? 'text-gray-950/75' : ''}`}/>
 
                     <Button onClick={() => setShowModel(true)} 
                              size='lg'
                             className='md:text-lg sm:block hidden'
                     > Let's Travel</Button>
+
+                    <Link href='/dashboard/admin'
+                            className={buttonVariants()}
+                    >
+                        Dashboard
+                    </Link>
                 </div>
 
                 {/* Menu control */}
@@ -77,7 +70,7 @@ export const Navbar = () => {
         >
             <Container className=''
             >
-                <SignInForm className='w-full'  />
+                <SignUpForm className='w-full'  />
             </Container>
         </Modal>
     </nav>

@@ -5,9 +5,15 @@ import {
     AccordionItem,
     AccordionTrigger,
   } from "@/components/ui/accordion"
+
+interface Props {
+  title?: string;
+}
   
 
-export const FaqAccordion = () => {
+export const FaqAccordion = (
+  { title }: Props
+) => {
   return (
     <Accordion  type="single" 
                 collapsible
@@ -17,7 +23,7 @@ export const FaqAccordion = () => {
                         className='min-w-4xl'
         >
             <AccordionTrigger className='text-lg'
-            >Is it accessible?</AccordionTrigger>
+            > { title }</AccordionTrigger>
 
             <AccordionContent className='text-lg text-gray-600'
             >

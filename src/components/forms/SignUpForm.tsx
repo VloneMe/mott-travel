@@ -77,6 +77,8 @@ export function SignUpForm(
   }
 
   return (
+
+    // form starts here
     <Form {...form}>
       <div className={`flex flex-col w-6/12 
                       bg-white shadow-2xl 
