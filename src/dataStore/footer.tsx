@@ -9,11 +9,14 @@ export const navigation = [
         title: "home",
         url: "/",
     },{
+        title: "about",
+        url: "/#about",
+    },{
         title: "places",
-        url: "/places",
+        url: "/#places",
     },{
         title: "faqs",
-        url: "/faqs",
+        url: "/#faqs",
     },
 ]
 

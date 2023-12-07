@@ -28,7 +28,7 @@ export const TravelCard = () => {
         <Button onClick={() => setShowModel(true)} 
                 className='md:text-lg'
         >
-          Let"s Travel
+          Let&apos;s Travel
         </Button>
       </Container >
       <Modal isVisible={showModel} 

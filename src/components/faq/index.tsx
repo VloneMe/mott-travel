@@ -11,7 +11,7 @@ import { faqsData } from "@/dataStore/faqsData";
 
 export const Faq = () => {
   return (
-    <section className="min-h-screen w-full flex items-center justify-center">
+    <section id="faqs" className="min-h-screen w-full flex items-center justify-center">
         <Container className="flex w-full h-full justify-center">
             <div className="items-center space-y-5 w-7/12">
                 <div className="text-center md:space-y-3 space-y-1">

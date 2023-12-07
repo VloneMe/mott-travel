@@ -67,7 +67,7 @@ export function SignInForm(
   return (
     <Form {...form}
     >
-      <div className={`flex flex-col lg:w-6/12  w-full
+      <div className={`flex flex-col  w-6/12
                       bg-white shadow-2xl 
                         p-8 rounded-md space-y-5 
                         ${className}`}

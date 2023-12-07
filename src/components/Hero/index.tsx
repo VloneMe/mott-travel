@@ -33,7 +33,7 @@ export const Hero = () => {
                                 sm:text-4xl text-2xl text-center 
                                 font-bold tracking-wider'>
                     <span className=''>
-                    Let's Travel 
+                    Let&apos;s Travel 
                     </span> Togather And Explore  <br />
                     <span>
                         The Beauty Of The Nature
@@ -48,7 +48,7 @@ export const Hero = () => {
                                         md:text-lg sm:text-lg 
                                         text-base text-white 
                                         hover:text-xl'
-                    >Let's Travel</Button>
+                    >Let&apos;s Travel</Button>
 
                     <Button className='md:text-lg sm:text-lg 
                                         text-base hover:shadow-2xl

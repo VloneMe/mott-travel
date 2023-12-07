@@ -14,7 +14,8 @@ const slides = [
 
 export const Places = () => {
   return (
-    <section className='md:min-h-screen w-full flex items-center shadow-lg'>
+    <section id="places" 
+             className='md:min-h-screen w-full flex items-center shadow-lg'>
         <Container className='h-full w-full space-y-10'
         >
             <div className=''
@@ -25,7 +26,7 @@ export const Places = () => {
 
                     <p className=''
                     >
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer
                     </p>
                 </div>
             </div>

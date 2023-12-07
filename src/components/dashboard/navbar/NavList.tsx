@@ -9,19 +9,15 @@ const navLinks = [
     {
         id: 1,
         name: 'home',
-        url: '#/'
-    },{
-        id: 1,
-        name: 'about',
-        url: '/#about'
+        url: ''
     },{
         id: 2,
         name: 'places',
-        url: '/#places'
+        url: ''
     },{
         id: 3,
         name: 'faqs',
-        url: '/#faqs'
+        url: ''
     },
 ]
 

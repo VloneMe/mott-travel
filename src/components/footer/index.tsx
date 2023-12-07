@@ -91,13 +91,13 @@ export const Footer = () => {
             </ul>
         </Container>
 
-        <div className='w-full'>
+        {/* <div className='w-full'>
           <hr className='w-full py-5 h-8' 
           />
           <Container>
 
           </Container>
-        </div>
+        </div> */}
     </footer>
   )
 }

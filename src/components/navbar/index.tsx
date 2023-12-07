@@ -11,6 +11,11 @@ import { Modal } from '../modal';
 import { SignInForm } from '../forms/SignInForm';
 import { SignUpForm } from '../forms/SignUpForm';
 import { useNavHooks } from '@/hooks/useNavHooks';
+import {    Avatar,
+            AvatarFallback,
+            AvatarImage
+        } from "@/components/ui/avatar";
+
 
 export const Navbar = () => {
 
@@ -46,13 +51,20 @@ export const Navbar = () => {
                     <Button onClick={() => setShowModel(true)} 
                              size='lg'
                             className='md:text-lg sm:block hidden'
-                    > Let's Travel</Button>
+                    > Let&apos;s Travel</Button>
 
-                    <Link href='/dashboard/admin'
+                    {/* <Link href='/admin'
                             className={buttonVariants()}
                     >
                         Dashboard
-                    </Link>
+                    </Link> */}
+
+                    <div className='border '>
+                    <Avatar>
+                        <AvatarImage src="https://github.com/shadcn.png" />
+                        <AvatarFallback>CN</AvatarFallback>
+                    </Avatar>
+                    </div>
                 </div>
 
                 {/* Menu control */}
@@ -70,7 +82,7 @@ export const Navbar = () => {
         >
             <Container className=''
             >
-                <SignUpForm className='w-full'  />
+                <SignInForm className='w-full'  />
             </Container>
         </Modal>
     </nav>
